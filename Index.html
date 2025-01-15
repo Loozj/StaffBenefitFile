@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Benefits</title>
+</head>
+<body>
+    <h1>Search Employee Benefits</h1>
+    <form action="/search" method="get">
+        <label for="employeeNumber">Enter Employee Number:</label>
+        <input type="text" id="employeeNumber" name="employeeNumber" required>
+        <button type="submit">Search</button>
+    </form>
+
+    {% if result %}
+        <h2>Result:</h2>
+        <p><strong>Name:</strong> {{ result.name }}</p>
+        <p><strong>Benefit:</strong> {{ result.benefit }}</p>
+    {% elif error %}
+        <h2>Error:</h2>
+        <p>{{ error }}</p>
+    {% endif %}
+</body>
+</html>
